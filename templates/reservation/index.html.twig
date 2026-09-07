@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style_reservation.css') }}">
+{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="panel">
+        <h2>Informations</h2>
+
+        <form method="post" class="row">
+            <input type="email" name="email" required placeholder="Votre e-mail" value="{{ email }}">
+            <button class="btn" type="submit">Enregistrer</button>
+        </form>
+
+        <form method="post" class="row" style="margin-top:14px;">
+            <select name="type" required>
+                <option value="">Choisir un type</option>
+                
+                {% for t in types %}
+                    <option value="{{ t }}" {% if t == typeChoisi %}selected{% endif %}>
+                        {{ t }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button class="btn" type="submit">Valider</button>
+        </form>
+
+        <form method="post" class="row" style="margin-top:14px;">
+            <select name="spectacle" required>
+                <option value="">Choisir un spectacle</option>
+              
+                {% for sp in spectacles %}
+                    
+                    <option value="{{ sp.id }}" {% if spectacleChoisi and sp.id == spectacleChoisi.id %}selected{% endif %}>
+                        {{ sp.titre }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button class="btn" type="submit">Valider</button>
+        </form>
+
+        {% if spectacleChoisi %}
+            <p class="hint">Spectacle sélectionné : <strong>{{ spectacleChoisi.titre }}</strong></p>
+        {% endif %}
+    </section>
+
+    <section class="panel">
+        <h2>Tarifs</h2>
+        {% if spectacleChoisi %}
+            <div class="cards">
+                {% for t in tarifs %}
+                    <form method="post" class="card">
+                        <h3>{{ t.label }}</h3>
+                        <div class="price">{{ t.prix }} €</div>
+                        <input type="hidden" name="tarif" value="{{ t.label }}">
+                        <input type="hidden" name="prix" value="{{ t.prix }}">
+                        <div class="row" style="justify-content:center;">
+                            <input type="number" name="quantite" min="1" value="1">
+                        </div>
+                        <button class="btn btn-dark" type="submit">Ajouter</button>
+                    </form>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="hint">Veuillez choisir un spectacle pour voir les tarifs.</p>
+        {% endif %}
+    </section>
+    
+    <section class="panel">
+        <h2>Panier</h2>
+        {% if panier is empty %}
+            <p class="hint">Panier vide.</p>
+        {% else %}
+            <ul class="list">
+                {% for item in panier %}
+                    <li>
+                        {{ item.quantite }} × {{ item.tarif }}
+                        <span class="right"><strong>{{ item.prix * item.quantite }} €</strong></span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="total">Total : {{ total }} €</div>
+        <div class="actions">
+            <form method="post">
+                 <button class="btn btn-danger" type="submit" name="vider">Vider le panier</button>
+            </form>
+            {% if total > 0 and email is not empty %}
+                <a class="btn" href="{{ path('app_paiement') }}">Passer au paiement</a>
+            {% endif %}
+        </div>
+    </section>
+</main>
+{% endblock %}

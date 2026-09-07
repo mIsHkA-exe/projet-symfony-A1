@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Réservations{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }} 
+    <link rel="stylesheet" href="{{ asset('css/style_liste.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container-custom">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1 class="page-title">
+            🎫 Mes Réservations
+        </h1>
+        <a href="{{ path('app_logout') }}" style="color: #666; text-decoration: underline; font-size: 0.9rem;">Déconnexion</a>
+    </div>
+
+    <p style="color: #8b949e;">Retrouvez ici l'historique de vos places de théâtre.</p>
+
+    <div class="reservation-card">
+        
+        {% for reservation in reservations %}
+            <div class="ticket-item">
+                <div class="ticket-info">
+                    <h3>{{ reservation.seance.spectacle.titre }}</h3>
+                    
+                    <div class="ticket-date">
+                        <i class="far fa-calendar-alt"></i> 
+                        Le {{ reservation.seance.dateDebut|date('d/m/Y') }} 
+                        à {{ reservation.seance.dateDebut|date('H:i') }}
+                    </div>
+                    
+                    <span class="badge-places">
+                        {{ reservation.nbPlaces }} place(s) réservée(s)
+                    </span>
+                </div>
+
+                <div class="ticket-price">
+                <span class="price-tag">{{ reservation.prixTotale }} €</span>
+                    <small style="color: #666;">Total</small>
+                </div>
+            </div>
+        {% else %}
+            <div class="empty-state">
+                <h3>Vous n'avez aucune réservation pour le moment.</h3>
+                <p>Envie de sortir ? Allez voir nos spectacles !</p>
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{{ path('app_home') }}" class="btn-back">← Retour à l'accueil</a>
+    </div>
+</div>
+{% endblock %}

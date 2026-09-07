@@ -1,0 +1,249 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  --bg: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+  --panel: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+  --gold: #d4af37;
+  --soft: rgba(212, 175, 55, 0.20);
+  --soft2: rgba(212, 175, 55, 0.12);
+  --danger: #b12b2b;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--gold);
+  min-height: 100vh;
+}
+
+.hero{
+  padding: 70px 20px 55px;
+  border-bottom: 1px solid var(--soft2);
+}
+
+.hero.small{
+  padding: 55px 20px 40px;
+}
+
+.hero-inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1{
+  font-size: 52px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.hero p{
+  opacity: 0.9;
+}
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.panel{
+  background: var(--panel);
+  border: 1px solid var(--soft2);
+  border-radius: 16px;
+  padding: 26px;
+  margin-bottom: 26px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.panel.center{
+  text-align: center;
+}
+
+h2{
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+h3{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.hint{
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.big{
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.divider{
+  height: 1px;
+  background: var(--soft2);
+  margin: 22px 0;
+}
+
+.row{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+input, select{
+  padding: 12px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--soft2);
+  background: rgba(0,0,0,0.25);
+  color: var(--gold);
+  outline: none;
+}
+
+select option{
+  color: #111;
+}
+
+input::placeholder{
+  color: rgba(212, 175, 55, 0.6);
+}
+
+input:focus, select:focus{
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--soft);
+}
+
+input[type="number"]{
+  width: 90px;
+  text-align: center;
+}
+
+.cards{
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.card{
+  width: 300px;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid var(--soft2);
+  background: rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+.price{
+  font-size: 28px;
+  font-weight: bold;
+  margin: 8px 0 14px;
+}
+
+.list{
+  list-style: none;
+  margin-top: 10px;
+}
+
+.list li{
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--soft2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.right{
+  white-space: nowrap;
+}
+
+.total{
+  margin-top: 14px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.actions{
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn{
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  background: rgba(212, 175, 55, 0.14);
+  color: var(--gold);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn:hover{
+  background: rgba(212, 175, 55, 0.22);
+}
+
+.btn-dark{
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(0,0,0,0.30);
+}
+
+.btn-dark:hover{
+  background: rgba(0,0,0,0.42);
+}
+
+.btn-danger{
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(177, 43, 43, 0.35);
+  color: #fff;
+}
+
+.btn-danger:hover{
+  background: rgba(177, 43, 43, 0.50);
+}
+
+.btn-ghost{
+  border-color: rgba(212, 175, 55, 0.35);
+  background: transparent;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.footer{
+  text-align: center;
+  padding: 24px 12px;
+  border-top: 1px solid var(--soft2);
+  opacity: 0.9;
+}
+
+p, h1, h2, h3, li, span, footer{
+  user-select: none;
+}
+
+input, select, textarea, button, a{
+  user-select: auto;
+}
+
+@media (max-width: 900px){
+  .hero h1{ font-size: 38px; }
+  .actions{ justify-content: center; }
+  .list li{ flex-direction: column; align-items: flex-start; }
+  .right{ align-self: flex-end; }
+}

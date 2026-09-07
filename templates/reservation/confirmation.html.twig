@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation - Théâtre Lumière{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style_reservation.css') }}">
+{% endblock %}
+
+{% block body %}
+<header class="hero small">
+    <div class="hero-inner">
+        <h1>Confirmation</h1>
+        <p>Votre place est réservée !</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="panel center">
+        <div style="font-size: 3rem; margin-bottom: 20px;">✅</div>
+        
+        <h2>Merci {{ user.prenom }} !</h2>
+        <p class="big">Votre réservation a bien été enregistrée.</p>
+        
+        <div class="divider"></div>
+
+        <p class="hint">Un e-mail de confirmation a été envoyé à :</p>
+        <p><strong>{{ user.email }}</strong></p>
+
+        <div class="divider"></div>
+
+        <h3>Détails du spectacle</h3>
+        
+        {% if spectacle %}
+            <p class="hint">Spectacle : <strong style="color: #f1c40f;">{{ spectacle.titre }}</strong></p>
+            <p class="hint">Durée : {{ spectacle.duree }} min</p>
+        {% else %}
+            <p class="hint">Informations non disponibles (session expirée).</p>
+        {% endif %}
+
+        <div class="actions" style="justify-content:center; margin-top: 30px;">
+            <a class="btn" href="{{ path('app_home') }}">Retour à l’accueil</a>
+        </div>
+    </section>
+
+</main>
+{% endblock %}

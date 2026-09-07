@@ -1,0 +1,107 @@
+
+body {
+    font-family: 'Georgia', 'Garamond', serif;
+    /* background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%); */
+    background-color: #101020;
+    background: linear-gradient(180deg, #0f0f1e 0%, #101020 100%);
+    color: #f0e6d2;
+    line-height: 1.6;
+}
+.container-custom {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    color: #f0e68c; 
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reservation-card {
+    background-color: #1a1d24;
+    border: 1px solid #333;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.ticket-item {
+    padding: 25px;
+    border-bottom: 1px solid #2c3038;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+    .ticket-item:last-child {
+        border-bottom: none;
+    }
+
+    .ticket-item:hover {
+        background-color: #20242c;
+    }
+
+.ticket-info h3 {
+    margin: 0 0 8px 0;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.ticket-date {
+    color: #8b949e;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ticket-price {
+    text-align: right;
+}
+
+.price-tag {
+    display: block;
+    font-size: 1.5rem;
+    color: #f0e68c;
+    font-weight: bold;
+}
+
+.badge-places {
+    background: #2f363d;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 25px;
+    border: 1px solid #f0e68c;
+    color: #f0e68c;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+    .btn-back:hover {
+        background-color: #f0e68c;
+        color: #121418;
+    }
+
+.empty-state {
+    padding: 50px;
+    text-align: center;
+    color: #666;
+}

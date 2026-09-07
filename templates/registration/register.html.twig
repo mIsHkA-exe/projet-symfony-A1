@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign up{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style_register.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+{% endblock %}
+
+
+{% block header %}{% endblock %}
+
+
+{% block body %}
+
+    
+    <a href="{{ path('app_login') }}" id="sign-in">SIGN IN</a>
+    <a href="{{ path('app_home') }}" id="back-home">RETOUR ACCUEIL</a>
+
+    <div class="card-signup">
+        <h1>Sign up</h1>
+        <h5>Quick & Simple way to Automate your payment</h5>
+
+        {{ form_start(registrationForm) }}
+
+            <div class="error-global" style="color: red; text-align: center; margin-bottom: 10px;">
+                {{ form_errors(registrationForm) }}
+            </div>
+
+            {{ form_widget(registrationForm.prenom, {'attr': {'placeholder': 'First Name'}}) }}
+
+            {% if registrationForm.nom is defined %}
+            {{ form_widget(registrationForm.nom, {'attr': {'placeholder': 'Last Name'}}) }}
+            {% endif %}
+
+            {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Email Address'}}) }}
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Password'}}) }}
+            
+            <div id="terms">
+                {{ form_widget(registrationForm.agreeTerms, {'id': 'check-terms'}) }}
+                <label for="check-terms">I agree to the Terms of Service <br> and Privacy Policy.</label>
+            </div>
+
+            <button type="submit" id="btn-create">CREATE AN ACCOUNT</button>
+
+        {{ form_end(registrationForm) }}
+        
+        <h5 id="or">OR</h5>
+
+        <button class="social-btn">
+            <img src="{{ asset('images/google-icon.png') }}" alt="Google">
+        </button>
+
+    </div>
+
+{% endblock %}

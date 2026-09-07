@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+   
+    <link rel="stylesheet" href="{{ asset('css/style_login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="card-signup">
+        <h1>Log In</h1>
+        <h5>Quick & Simple way to Automate your payment</h5>
+
+        
+        {% if error %}
+            <div class="alert alert-danger" style="color: red; margin-bottom: 15px;">
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </div>
+        {% endif %}
+
+        
+        <form method="post" action="{{ path('app_login') }}">
+            
+           
+            <input type="email" value="{{ last_username }}" name="_username" placeholder="Email Address" required autofocus />
+            
+            
+            <input type="password" name="_password" placeholder="Password" required />
+
+        
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <div id="terms">
+                <input type="checkbox" id="btn-rememberme" name="_remember_me">
+                <label for="btn-rememberme">Remember Me</label>
+            </div>
+            
+            <button type="submit" id="btn-proceed">PROCEED</button>
+        </form>
+
+        <h5 id="or">OR USE</h5>
+
+        <button class="social-btn">
+            
+            <img src="{{ asset('images/google-icon.png') }}" alt="Google">
+        </button>
+    </div>
+
+    
+    <a href="{{ path('app_register') }}" id="sign-in" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">SIGN UP</a>
+    <a href="{{ path('app_home') }}" id="back-home">RETOUR ACCUEIL</a>
+
+{% endblock %}

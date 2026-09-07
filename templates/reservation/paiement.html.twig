@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style_reservation.css') }}">
+{% endblock %}
+
+{% block body %}
+<header class="hero small">
+    <div class="hero-inner">
+        <h1>Paiement</h1>
+        <p>Vérifie le récapitulatif</p>
+    </div>
+</header>
+
+<main class="container">
+    <section class="panel">
+        <h2>Récapitulatif</h2>
+        <p class="hint"><strong>Email :</strong> {{ email }}</p>
+<p class="hint"><strong>Spectacle :</strong> {{ spectacle.titre }}</p>
+        <ul class="list">
+            {% for item in panier %}
+                <li>
+                    {{ item.quantite }} × {{ item.tarif }}
+                    <span class="right"><strong>{{ item.prix * item.quantite }} €</strong></span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="total">Total à payer : {{ total }} €</div>
+    </section>
+
+<section class="panel">
+    <h2>Paiement & Inscription</h2>
+    
+  
+    <form method="post" action="{{ path('app_paiement') }}" class="form">
+        
+       
+        {% if not app.user %}
+            <div class="divider"></div>
+            <h3>Vos informations</h3>
+            <p class="hint">Pour valider votre réservation, créez votre compte :</p>
+            
+            <div class="row">
+                <input type="text" name="nom" placeholder="Votre Nom" required class="input-half">
+                <input type="text" name="prenom" placeholder="Votre Prénom" required class="input-half">
+            </div>
+            
+           
+            <input type="email" value="{{ email }}" disabled style="opacity: 0.7; cursor: not-allowed;">
+            
+            <input type="password" name="mot_de_passe" placeholder="Choisissez un mot de passe" required>
+            <div class="divider"></div>
+        {% endif %}
+
+       
+       <section class="panel">
+            <h2>Paiement</h2>
+    
+        <form method="post" action="{{ path('app_paiement') }}" class="form">
+            
+            
+            <div class="user-info" style="margin-bottom: 20px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px;">
+                <p style="margin:0;">👤 Client : <strong>{{ app.user.prenom }} {{ app.user.nom }}</strong></p>
+                <p style="margin:0; font-size: 0.9em; opacity: 0.8;">📧 {{ app.user.email }}</p>
+            </div>
+
+            <h3>Carte Bancaire</h3>
+            <input type="text" placeholder="Nom sur la carte" required>
+            <input type="text" placeholder="Numéro de carte" required>
+            <div class="row">
+                <input type="text" placeholder="MM/AA" required>
+                <input type="password" placeholder="CVV" required>
+            </div>
+
+            <button class="btn" type="submit">Payer et Réserver {{ total }} €</button>
+        </form>
+        </section>
+
+    </form>
+    
+</section>
+</main>
+{% endblock %}

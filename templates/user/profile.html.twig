@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Compte - Spectacles{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style_profile.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="profile-body">
+    
+    <header class="header-nav">
+        <h1>🎭 Mon Compte</h1>
+        <a href="{{ path('app_home') }}" class="back-home">← Retour à l'accueil</a>
+    </header>
+
+    <main class="main-card">
+        <div class="avatar-halo">
+            {{ user.prenom|first|upper }}{{ user.nom|first|upper }}
+        </div>
+
+        <div class="user-title">
+            <h2>{{ user.prenom }} {{ user.nom }}</h2>
+            <p>Membre depuis le {{ "now"|date("d/m/Y") }}</p>
+        </div>
+
+        <div class="info-container">
+            <div class="info-box">
+                <div class="label-gold"> Email</div>
+                <div class="value-text">{{ user.email }}</div>
+            </div>
+
+            <div class="info-box">
+                <div class="label-gold"> Nom</div>
+                <div class="value-text">{{ user.nom|upper }}</div>
+            </div>
+
+            <div class="info-box">
+                <div class="label-gold"> Prénom</div>
+                <div class="value-text">{{ user.prenom }}</div>
+            </div>
+        </div>
+
+        {# <div class="actions-footer">
+            <button class="btn-full"> Modifier mes informations</button>
+            <button class="btn-outline"> Changer le mot de passe</button>
+        </div>
+        #}
+    </main>
+</div>
+{% endblock %}

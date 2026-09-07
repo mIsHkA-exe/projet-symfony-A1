@@ -1,0 +1,232 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style_acceuil.css') }}">
+{% endblock %}
+
+{% block body %}
+<header>
+    <nav>
+        <div class="details">
+            <button>
+                <img src="{{ asset('images/logo-spec.png') }}" alt="icon-spec" class="icon-spec">
+            </button>
+            <ul>
+                
+                <a href="{{ path('app_ma_liste') }}">Ma liste</a>
+                <a href="">Agenda</a>
+                <a href="">A propos</a>
+            </ul>
+        </div>
+        <div>
+            <input type="text" placeholder="Search.." class="search-bar">
+            <button>
+                <img src="{{ asset('images/logo-loupe.png') }}" alt="icon-loupe" class="icon-loupe">
+            </button>
+            <button>
+                <a href="{{ path('app_login') }}">
+                    <img src="{{ asset('images/logo-login.png') }}" alt="icon-login" class="icon-login">
+                </a>
+            </button>
+            <button>
+                <a href="">
+                    <img src="{{ asset('images/logo-panier.png') }}" alt="icon-panier" class="icon-panier">
+                </a>
+            </button>
+        </div>
+    </nav>
+    <div class="title">
+        <img src="{{ asset('images/logo-spec.png') }}" alt="icon-spec">
+        <h3>Le spectacle n'est pas seulement une comédie mais un voyage !</h3>
+    </div>
+</header>
+
+<section class="jeunesse">
+    <h1>Les meilleurs spectacles de la France</h1>
+    <br>
+    <h1>Jeunesse</h1>
+    <div class="film-top-10">
+        <div class="f_top10_1">
+            <img src="{{ asset('images/film1_resized.png') }}" alt="photo-spec" class="logo-film">
+            <div class="left-1">
+                <div class="tilte-film1">
+                    <img src="{{ asset('images/film.png') }}" alt="Bobine-film" class="icon-film">
+                    <h1>Roméo et Juliette</h1>
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                </div>
+                <div class="temps"> 
+                    <img src="{{ asset('images/horloge.png') }}" alt="temps" class="logo-temps">
+                    <span class="time1"> Durée : 2h</span>
+                </div>
+                <div class="prix">
+                    <img src="{{ asset('images/billet.png') }}" class="ticket">
+                    <h3> Prix : 99.9£/per</h3>
+                </div>
+                <div class="date">
+                    <img src="{{ asset('images/date.png') }}" class="icon-date">
+                    <h3>10/01/2026</h3>
+                </div>
+                <div class="nb">
+                    {# <img src="{{ asset('images/grouper.png') }}" alt="nb_personne" class="grouper"> #}
+                </div>
+                <p>Ils s’aiment. Le monde les oppose. Dans la ville de Vérone, rongée par une haine ancienne entre deux familles rivales, Roméo Montaigu et Juliette Capulet se rencontrent par hasard et tombent amoureux instantanément.
+                Leur relation naît dans le secret, loin des regards, portée par l’intensité de la jeunesse et l’espoir d’un avenir différent.
+                Alors que la violence des clans s’aggrave et que chaque affrontement rapproche la ville du chaos, les deux amants tentent de faire exister leur amour malgré les interdits, les mensonges et les décisions imposées par les adultes. 
+                Pris dans une course contre le temps, Roméo et Juliette doivent choisir entre obéir à leur monde ou suivre leur cœur, quitte à tout perdre.
+                Une histoire universelle où la passion, la fatalité et le poids des choix transforment un amour naissant en légende tragique.</p>
+               <button><a href="http://localhost:8000/reservation">Book now</a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="jeunesse">
+    <br>
+    <h1>Théâtre</h1>
+    <div class="film-top-10">
+        <div class="f_top10_1">
+            <img src="{{ asset('images/silence.png') }}" alt="photo-spec" class="logo-film">
+            <div class="left-1">
+                <div class="tilte-film1">
+                    <img src="{{ asset('images/film.png') }}" alt="Bobine-film" class="icon-film">
+                    <h1>L'écho des silences</h1>
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                </div>
+                <div class="temps">
+                    <img src="{{ asset('images/horloge.png') }}" alt="temps" class="logo-temps">
+                    <span class="time1"> Durée : 30min</span>
+                </div>
+                <div class="prix">
+                    <img src="{{ asset('images/billet.png') }}" class="ticket">
+                    <h3> Prix : 99.9£/per</h3>
+                </div>
+                <div class="date">
+                    <img src="{{ asset('images/date.png') }}" class="icon-date">
+                    <h3>20/02/2026</h3>
+                </div>
+                <div class="nb">
+                    {# <img src="{{ asset('images/grouper.png') }}" alt="nb_personne" class="grouper"> #}
+                </div>
+                <p>Écho des silences est un spectacle profond et émouvant qui plonge le spectateur au cœur des sentiments humains.
+                Dans un univers sobre et poétique, les personnages évoluent entre non-dits, souvenirs et émotions retenues. Le silence devient un langage à part entière, révélant les conflits intérieurs et les liens invisibles qui unissent les êtres.
+                La mise en scène, délicate et épurée, laisse toute sa place au jeu des corps et des regards.
+                Chaque tableau raconte une histoire faite d’attente, de tension et d’espoir. Le spectacle explore avec finesse l’amour, la perte et la réconciliation. 
+                Une expérience théâtrale intense, intime et universelle.</p>
+                <button><a href="http://localhost:8000/reservation">Book now</a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="jeunesse">
+    <br>
+    <h1>Comédie Musicale</h1>
+    <div class="film-top-10">
+        <div class="f_top10_1">
+            <img src="{{ asset('images/misérables.png') }}" alt="photo-spec" class="logo-film">
+            <div class="left-1">
+                <div class="tilte-film1">
+                    <img src="{{ asset('images/film.png') }}" alt="Bobine-film" class="icon-film">
+                    <h1>Les Misérables</h1>
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                </div>
+                <div class="temps">
+                    <img src="{{ asset('images/horloge.png') }}" alt="temps" class="logo-temps">
+                    <span class="time1"> Durée : 2h 50min</span>
+                </div>
+                <div class="prix">
+                    <img src="{{ asset('images/billet.png') }}" class="ticket">
+                    <h3> Prix : 99.9£/per</h3>
+                </div>
+                <div class="date">
+                    <img src="{{ asset('images/date.png') }}" class="icon-date">
+                    <h3>03/10/2026</h3>
+                </div>
+                <div class="nb">
+                   {# <img src="{{ asset('images/grouper.png') }}" alt="nb_personne" class="grouper"> #}
+                </div>
+                <p>Les Misérables raconte le destin bouleversant de Jean Valjean, ancien forçat condamné pour avoir voulu survivre. 
+                Après des années de souffrance, il tente de se racheter et de reconstruire sa vie sous une nouvelle identité. 
+                Mais son passé le poursuit à travers l’inflexible inspecteur Javert, symbole d’une justice sans compromis.
+                Autour de lui gravitent des figures marquantes, dont Fantine, victime de l’injustice sociale, et Cosette, enfant sacrifiée puis sauvée.
+                Sur fond de misère et d’inégalités, le peuple lutte pour sa dignité et sa liberté.
+                L’histoire se déroule dans une France troublée par les révoltes et les espoirs révolutionnaires.
+                Victor Hugo y dresse un portrait puissant de la condition humaine.
+                Une fresque tragique et lumineuse sur la rédemption, l’amour et la justice.</p>
+               <button><a href="http://localhost:8000/reservation">Book now</a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="jeunesse">
+    <br>
+    <h1>Drame</h1>
+    <div class="film-top-10">
+        <div class="f_top10_1">
+            <img src="{{ asset('images/drame.png') }}" alt="photo-spec" class="logo-film">
+            <div class="left-1">
+                <div class="tilte-film1">
+                    <img src="{{ asset('images/film.png') }}" alt="Bobine-film" class="icon-film">
+                    <h1>Le Comte de Monte-Cristo</h1>
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                    <img src="{{ asset('images/star.png') }}" alt="star" class="star">
+                </div>
+                <div class="temps">
+                    <img src="{{ asset('images/horloge.png') }}" alt="temps" class="logo-temps">
+                    <span class="time1"> Durée : 2h</span>
+                </div>
+                <div class="prix">
+                    <img src="{{ asset('images/billet.png') }}" class="ticket">
+                    <h3> Prix : 99.9£/per</h3>
+                </div>
+                <div class="date">
+                    <img src="{{ asset('images/date.png') }}" class="icon-date">
+                    <h3>01/02/2026</h3>
+                </div>
+                <div class="nb">
+                   {# <img src="{{ asset('images/grouper.png') }}" alt="nb_personne" class="grouper"> #}
+                </div>
+                <p>Le Comte de Monte-Cristo retrace le destin d’Edmond Dantès, jeune homme injustement emprisonné le jour de ses fiançailles.
+                Victime d’une trahison, il perd tout et endure de longues années de captivité.
+                Sa rencontre avec un mystérieux compagnon de cellule change à jamais son destin.
+                Devenu riche et puissant, il revient sous une nouvelle identité.
+                Guidé par le désir de justice, il affronte ceux qui l’ont brisé.
+                Mais la vengeance laisse place au doute et à la réflexion morale.
+                Une fresque romanesque intense sur la trahison, la justice et la rédemption.</p>
+                <button><a href="http://localhost:8000/reservation">Book now</a></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="foot">
+    <hr>
+    <h2>Plongez dans le feu de l'action !</h2>
+    <button class="foot-btn"><a href="http://localhost:8000/login">Connect</a></button>
+    <br>
+    <span><a href="http://localhost:8000/register" class="lnk-foot">Pas de compte ? cliquez ici</a></span>
+    <hr>
+    <div class="foot-2">
+        <h2>Informations utiles</h2>
+        <ul>
+            <li><img src="{{ asset('images/map.png') }}" alt="map" class="map">Pôle Léonard de Vinci</li>
+            <li><img src="{{ asset('images/call.png') }}" alt="number" class="call">6 10 48 26 00</li>
+            <li><img src="{{ asset('images/email.png') }}" alt="email" class="email">Shows.vkh@gmial.com</li>
+        </ul>
+    </div>
+</section>
+
+    {% endblock %}

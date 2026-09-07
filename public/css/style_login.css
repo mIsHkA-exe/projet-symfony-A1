@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* FONT */
+.zen-kaku-gothic-antique-regular {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+body {
+    background-color: #101020;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(180deg, #0f0f1e 0%, #101020 100%);
+}
+
+
+.card-signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    width: 572px;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #d4af37;
+}
+
+.card-signup h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #d4af37;
+}
+
+.card-signup h5 {
+    color: #666;
+    font-weight: normal;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 380px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+#terms {
+    width: 380px; 
+    display: flex;
+    align-items: center; 
+    justify-content: start; 
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+#btn-rememberme {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+#btn-proceed {
+    width: 380px;
+    height: 64px;
+    background-color: #d4af37;
+    color: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-radius: 30px;
+}
+
+    #btn-proceed:hover {
+        background: linear-gradient(135deg, #e6c144 0%, #d4af37 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    }
+
+#or {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.social-btn:hover {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+}
+
+.social-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Bouton SIGN IN (Déjà existant) */
+#sign-in {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 160px; /* Largeur fixe pour aligner les deux boutons */
+    height: 48px;
+    background-color: #d4af37;
+    color: #0f0f1e;
+    border: none;
+    font-weight: bold;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+/* NOUVEAU : Bouton RETOUR ACCUEIL placé juste en dessous */
+#back-home {
+    position: absolute;
+    top: 80px; /* 20px (top de sign-in) + 48px (hauteur) + 12px d'espace */
+    right: 40px;
+    width: 160px; /* Même largeur que sign-in pour un alignement parfait */
+    height: 48px;
+    background-color: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+/* Effets au survol */
+#sign-in:hover, #back-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+#back-home:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
