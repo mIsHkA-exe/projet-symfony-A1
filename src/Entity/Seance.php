@@ -15,11 +15,11 @@ class Seance
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Seances')]
+    #[ORM\ManyToOne(inversedBy: 'seances')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Spectacle $spectacle = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Seances')]
+    #[ORM\ManyToOne(inversedBy: 'seances')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Salle $salle = null;
 
@@ -32,7 +32,7 @@ class Seance
     /**
      * @var Collection<int, Reservation>
      */
-    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'Seance')]
+    #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'seance')]
     private Collection $reservations;
 
     public function __construct()
@@ -122,9 +122,9 @@ class Seance
 
         return $this;
     }
- public function __toString(): string
-{
-    // Correction ici : utilisez date_debut au lieu de dateDebut
-    return $this->spectacle->getTitre() . ' (' . $this->date_debut->format('d/m H:i') . ')';
-}
+    public function __toString(): string
+    {
+        // Correction ici : utilisez date_debut au lieu de dateDebut
+        return $this->spectacle->getTitre() . ' (' . $this->date_debut->format('d/m H:i') . ')';
+    }
 }
