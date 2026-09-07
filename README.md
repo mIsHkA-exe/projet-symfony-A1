@@ -9,8 +9,8 @@ The objective of this project is to design a **web-based show reservation platfo
 The application was developed using **Symfony and PHP** and currently operates in a local development environment. It represents an academic Beta version that could be further developed into a larger-scale reservation platform.
 
 > **Status:** Academic Project / Beta Version
-[![Symfony](https://img.shields.io/badge/Symfony-Framework-black?logo=symfony)](https://symfony.com/)
 ---
+[![Symfony](https://img.shields.io/badge/Symfony-Framework-black?logo=symfony)](https://symfony.com/)
 
 ## Features
 
