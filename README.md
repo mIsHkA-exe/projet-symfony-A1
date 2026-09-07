@@ -1,27 +1,80 @@
 # Show Reservation Platform — Symfony
 
+![Symfony](https://img.shields.io/badge/Symfony-Framework-black?style=for-the-badge\&logo=symfony)
+![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?style=for-the-badge\&logo=php\&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white)
+![Doctrine](https://img.shields.io/badge/Doctrine-ORM-FC6A31?style=for-the-badge)
+![Twig](https://img.shields.io/badge/Twig-Template%20Engine-BACC00?style=for-the-badge\&logo=twig\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
+![Git](https://img.shields.io/badge/Git-Version%20Control-F05032?style=for-the-badge\&logo=git\&logoColor=white)
+
 ## Overview
 
 Academic project developed as part of the **Bachelor in Digital Engineering — Cybersecurity** program at **ESILV** during the 2025–2026 academic year.
 
-The objective of this project is to design a **web-based show reservation platform** allowing users to browse available shows, create an account, log in, make reservations, and view their existing reservations.
-
-The application was developed using **Symfony and PHP** and currently operates in a local development environment. It represents an academic Beta version that could be further developed into a larger-scale reservation platform.
+The objective of this project is to develop a **web-based show reservation platform** allowing users to browse available shows, create an account, authenticate, make reservations and view their previous reservations.
 
 > **Status:** Academic Project / Beta Version
+
 ---
-[![Symfony](https://img.shields.io/badge/Symfony-Framework-black?logo=symfony)](https://symfony.com/)
+
+## Table of Contents
+
+* [Overview](#overview)
+* [Features](#features)
+
+  * [User Features](#user-features)
+  * [Administrator Features](#administrator-features)
+* [Architecture](#architecture)
+
+  * [Model](#model)
+  * [View](#view)
+  * [Controller](#controller)
+* [Technologies](#technologies)
+* [Development Environment](#development-environment)
+* [Installation](#installation)
+
+  * [Prerequisites](#prerequisites)
+  * [Clone the Repository](#1-clone-the-repository)
+  * [Install Dependencies](#2-install-dependencies)
+  * [Configure the Database](#3-configure-the-database)
+  * [Create the Database](#4-create-the-database)
+  * [Run Database Migrations](#5-run-database-migrations)
+  * [Start the Symfony Development Server](#6-start-the-symfony-development-server)
+* [Project Structure](#project-structure)
+* [Main Pages](#main-pages)
+
+  * [Home Page](#home-page)
+  * [Login Page](#login-page)
+  * [Registration Page](#registration-page)
+  * [Reservation Page](#reservation-page)
+* [Authentication & Security](#authentication--security)
+* [Administration Interface](#administration-interface)
+* [User Workflow](#user-workflow)
+* [Demonstration Data](#demonstration-data)
+* [Future Improvements](#future-improvements)
+* [Current Limitations](#current-limitations)
+* [Learning Objectives](#learning-objectives)
+* [Team](#team)
+* [Project Context](#project-context)
+* [License](#license)
+* [Author](#author)
+* [Acknowledgements](#acknowledgements)
+
+---
 
 ## Features
 
 ### User Features
 
 * Create a user account
-* User authentication and login
+* Authenticate and log in
 * Browse available shows
 * Book a show
 * Confirm a reservation
-* Simulated payment process
+* Simulate the payment process
 * View previous reservations
 * View account information
 
@@ -29,17 +82,17 @@ The application was developed using **Symfony and PHP** and currently operates i
 
 * Access a secured administration interface
 * Manage application entities
-* Create, read, update, and delete data
-* Manage users and reservation data
-* Control access through user roles
+* Create, read, update and delete data
+* Manage users and reservations
+* Control access using user roles
 
-Access to the administration interface is protected using the `ROLE_ADMIN` role.
+The administration interface is protected using the `ROLE_ADMIN` role.
 
 ---
 
 ## Architecture
 
-The project follows the **MVC (Model-View-Controller)** architecture, which separates data management, user interface, and application logic.
+The application follows the **MVC (Model-View-Controller)** architecture.
 
 ```text
                     ┌──────────────────────┐
@@ -62,73 +115,33 @@ The project follows the **MVC (Model-View-Controller)** architecture, which sepa
 
 ### Model
 
-The **Model** layer is based on a **MySQL relational database** managed through **Doctrine ORM**.
-
-Application entities are synchronized with the database using Symfony's migration system.
+The Model layer uses a **MySQL relational database** managed through **Doctrine ORM**.
 
 ### View
 
-The **View** layer is implemented using **Twig**, Symfony's templating engine.
-
-Twig `.twig` files are used to generate the application's web pages.
-
-CSS files are organized in:
-
-```text
-/public/css
-```
-
-Images are organized in:
-
-```text
-/public/images
-```
+The View layer uses **Twig**, Symfony's templating engine.
 
 ### Controller
 
-Controllers handle communication between the application's data and its user interfaces.
-
-They are responsible for:
-
-* Defining application routes
-* Handling HTTP requests
-* Communicating with entities
-* Passing data to views
-* Managing application logic
+Controllers handle routes, HTTP requests, communication with entities and data transmission to the views.
 
 ---
 
 ## Technologies
 
-| Technology       | Purpose                        |
-| ---------------- | ------------------------------ |
-| **PHP**          | Backend programming language   |
-| **Symfony**      | PHP web framework              |
-| **Twig**         | Template engine                |
-| **MySQL**        | Relational database            |
-| **Doctrine ORM** | Database and entity management |
-| **SQL**          | Database manipulation          |
-| **HTML5**        | Web page structure             |
-| **CSS3**         | Web page styling               |
-| **JavaScript**   | Client-side interactivity      |
-| **Composer**     | PHP dependency management      |
-| **Git**          | Version control                |
-
-These technologies were used to develop the application and connect the web interface to the database.
-
----
-
-## Development Environment
-
-The project was developed using several tools:
-
-* Visual Studio Code
-* Visual Studio Insiders
-* Phoenix Code
-* MySQL Workbench
-* Symfony CLI
-* Git
-* PowerShell / Command Prompt
+| Technology   | Purpose                        |
+| ------------ | ------------------------------ |
+| PHP 8.4      | Backend programming            |
+| Symfony      | Web framework                  |
+| Twig         | Template engine                |
+| MySQL        | Relational database            |
+| Doctrine ORM | Entity and database management |
+| SQL          | Database manipulation          |
+| HTML5        | Web structure                  |
+| CSS3         | Styling                        |
+| JavaScript   | Client-side interactions       |
+| Composer     | Dependency management          |
+| Git          | Version control                |
 
 ---
 
@@ -136,79 +149,57 @@ The project was developed using several tools:
 
 ### Prerequisites
 
-Before installing the project, make sure the following tools are available:
-
-* PHP
+* PHP 8.4.x
 * Composer
 * Symfony CLI
 * Git
 * MySQL
 * MySQL Workbench
-* A web browser
+* Web browser
 
-The project was developed using **PHP 8.4.x**.
-
----
-
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
 cd YOUR-REPOSITORY
 ```
 
----
-
-### 2. Install dependencies
+### 2. Install Dependencies
 
 ```bash
 composer install
 ```
 
----
+### 3. Configure the Database
 
-### 3. Configure the database
-
-Create a MySQL database corresponding to the project configuration.
-
-Then configure the `DATABASE_URL` variable in the `.env` file:
+Configure the `DATABASE_URL` variable in `.env`:
 
 ```env
 DATABASE_URL="mysql://root:root@127.0.0.1:3306/cinema?serverVersion=16&charset=utf8"
 ```
 
-> **Important:** Replace the username, password, port, and database name according to your local MySQL configuration.
+Adjust the username, password, port and database name according to your local configuration.
 
-The original project documentation uses `cinema` as the database name and port `3306` for MySQL.
-
----
-
-### 4. Create the database
+### 4. Create the Database
 
 ```bash
 php bin/console doctrine:database:create
 ```
 
----
-
-### 5. Run database migrations
+### 5. Run Database Migrations
 
 ```bash
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 ```
 
-Migrations synchronize Symfony entities with the database structure.
-
----
-
-### 6. Start the Symfony development server
+### 6. Start the Symfony Development Server
 
 ```bash
 symfony server:start
 ```
 
-The application will then be available at:
+The application will be available at:
 
 ```text
 http://localhost:8000
@@ -222,30 +213,24 @@ http://localhost:8000
 project/
 │
 ├── assets/
-│
 ├── config/
 │   └── routes.yaml
-│
 ├── migrations/
-│
 ├── public/
 │   ├── css/
 │   ├── images/
 │   └── ...
-│
 ├── src/
 │   ├── Controller/
 │   ├── Entity/
 │   ├── Repository/
 │   └── ...
-│
 ├── templates/
 │   ├── base.html.twig
 │   ├── login/
 │   ├── registration/
 │   ├── reservation/
 │   └── ...
-│
 ├── .env
 ├── composer.json
 └── README.md
@@ -257,19 +242,15 @@ project/
 
 ### Home Page
 
-The home page displays the available shows and allows users to browse the different reservation options.
+Displays available shows and reservation options.
 
 ### Login Page
 
-The login page allows existing users to authenticate themselves.
-
-The authentication system relies on Symfony's `form_login` mechanism.
+Allows existing users to authenticate using Symfony's `form_login` mechanism.
 
 ### Registration Page
 
-The registration page allows new users to create an account.
-
-Symfony provides the required basic structure through:
+Allows new users to create an account.
 
 ```bash
 php bin/console make:registration-form
@@ -277,22 +258,20 @@ php bin/console make:registration-form
 
 ### Reservation Page
 
-The reservation workflow is divided into several steps:
+The reservation process is divided into several stages:
 
 ```text
 Show Selection
       │
       ▼
-  Reservation
+Reservation
       │
       ▼
-  Confirmation
+Confirmation
       │
       ▼
-    Payment
+Payment
 ```
-
-The reservation functionality uses a `ReservationController` and several Twig templates to manage the different stages of the process.
 
 ---
 
@@ -300,31 +279,32 @@ The reservation functionality uses a `ReservationController` and several Twig te
 
 The application distinguishes between standard users and administrators.
 
-Example of access control configuration:
+Administrative routes are protected using Symfony's role-based access control:
 
 ```yaml
 access_control:
     - { path: ^/admin, roles: ROLE_ADMIN }
 ```
 
-This configuration restricts access to administrative routes to users with the `ROLE_ADMIN` role.
+This prevents unauthorized users from accessing the administration interface.
 
 ---
 
 ## Administration Interface
 
-The administration system relies on **CRUD operations** to manage the application's entities.
-
-The four main operations are:
+The administration interface uses **CRUD operations**:
 
 ```text
 Create
+  ↓
 Read
+  ↓
 Update
+  ↓
 Delete
 ```
 
-The project documentation uses EasyAdmin to generate CRUD interfaces:
+The project documentation also uses EasyAdmin to generate CRUD interfaces.
 
 ```bash
 php bin/console make:admin:crud EntityName
@@ -333,8 +313,6 @@ php bin/console make:admin:crud EntityName
 ---
 
 ## User Workflow
-
-The main user journey is structured as follows:
 
 ```text
 Create an account
@@ -347,18 +325,16 @@ Make a reservation
        ↓
 Confirm reservation
        ↓
-    Payment
+     Payment
        ↓
 View reservations
 ```
-
-Final tests were performed to verify the account creation, authentication, reservation process, and additional account-related functionalities.
 
 ---
 
 ## Demonstration Data
 
-For academic and development purposes, the application uses demonstration data.
+The application uses demonstration data for academic and development purposes.
 
 No real personal data is required to run the project.
 
@@ -366,56 +342,53 @@ No real personal data is required to run the project.
 
 ## Future Improvements
 
-This project currently represents an **academic Beta version**. Several improvements could be implemented in future versions:
-
-* Deploy the application to a production server
-* Integrate a real payment provider
-* Improve the user interface
-* Add a notification system
-* Implement advanced ticket management
-* Generate digital tickets
-* Integrate QR codes for ticket validation
-* Strengthen application security
-* Improve role and permission management
-* Add automated testing
-* Develop an API
-* Optimize application performance
-* Prepare the platform for larger-scale usage
+* Production deployment
+* Real payment provider integration
+* Improved user interface
+* Notification system
+* Advanced ticket management
+* Digital ticket generation
+* QR-code ticket validation
+* Stronger security mechanisms
+* Improved role and permission management
+* Automated testing
+* API development
+* Performance optimization
+* Scalability improvements
 
 ---
 
 ## Current Limitations
 
-Since the project was developed in an academic environment, several features would require further development before production deployment.
+The project is currently an **academic Beta version**.
 
-Current limitations include:
+Main limitations include:
 
-* The payment system is not connected to a real payment provider.
-* The application currently runs in a local development environment.
-* The available data is primarily intended for testing and demonstration.
-* Additional security and data-management measures would be required for production use.
+* Payment is simulated
+* The application currently runs locally
+* Data is primarily intended for testing
+* Additional security measures would be required before production deployment
 
 ---
 
 ## Learning Objectives
 
-This project provided an opportunity to apply several technical concepts:
+This project provided practical experience with:
 
 * PHP web development
-* Symfony framework
+* Symfony
 * MVC architecture
-* MySQL database management
+* MySQL
 * Doctrine ORM
-* Entity creation and management
 * Database migrations
 * Routing and Controllers
-* Twig templating
-* User authentication
+* Twig
+* Authentication
 * Role-based access control
 * CRUD administration
-* Git version control
-* Collaborative software development
-* Web project organization
+* Git
+* Collaborative development
+* Web application architecture
 
 ---
 
@@ -434,7 +407,15 @@ Academic project completed as part of the **Bachelor in Digital Engineering — 
 
 ## Project Context
 
-The project was developed as a collaborative academic assignment. Each team member contributed to different components of the application, including authentication, the home page, reservation workflow, database management, and administration features.
+The project was developed as a collaborative academic assignment.
+
+Team members contributed to different components of the application, including:
+
+* Authentication
+* Home page
+* Reservation workflow
+* Database management
+* Administration features
 
 ---
 
@@ -442,7 +423,7 @@ The project was developed as a collaborative academic assignment. Each team memb
 
 This project was developed for **academic purposes** at ESILV.
 
-The repository is primarily intended to document and showcase the technical work carried out during the project.
+The repository is primarily intended to document and showcase the technical work completed during the project.
 
 ---
 
@@ -451,7 +432,6 @@ The repository is primarily intended to document and showcase the technical work
 ### Kyllian Tiague Siewe
 
 **Cybersecurity Student — ESILV**
-
 
 ---
 
